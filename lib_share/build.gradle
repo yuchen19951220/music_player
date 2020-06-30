@@ -1,0 +1,34 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion this.rootProject.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion this.rootProject.android.minSdkVersion
+        targetSdkVersion this.rootProject.android.targetSdkVersion
+        versionCode this.rootProject.android.versionCode
+        versionName this.rootProject.android.versionName
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation this.rootProject.depsLibs.appcompat
+    compileOnly project(':lib_commin_ui')
+}
+
+//打libs下所有jar文件打包到apk中
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}

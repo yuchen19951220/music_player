@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion this.rootProject.android.compileSdkVersion
+
+
+    defaultConfig {
+        applicationId "com.android.music_player"
+        minSdkVersion this.rootProject.android.minSdkVersion
+        targetSdkVersion this.rootProject.android.targetSdkVersion
+        versionCode this.rootProject.android.versionCode
+        versionName this.rootProject.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation this.rootProject.depsLibs.appcompat
+
+    api rootProject.depsLibs.magicindicator
+
+    implementation rootProject.depsLibs.design
+    implementation rootProject.depsLibs.recyclerview
+    //gson解析库
+    implementation rootProject.depsLibs.gson
+    //rxjava库
+    implementation rootProject.depsLibs.rxjava
+    implementation rootProject.depsLibs.rxandroid
+    //eventbus类库依赖
+    implementation rootProject.depsLibs.eventbus
+    //greendao插件依赖
+    implementation rootProject.depsLibs.greendao
+
+    //基础UI库
+    implementation project(path: ':lib_commin_ui')
+    //网络请求库
+    implementation project(path: ':lib_network')
+    //图片加载库
+    implementation project(':lib_image_ui')
+    //分享库
+    implementation project(':lib_share')
+    //音频库
+    implementation project(':lib_audio')
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+}

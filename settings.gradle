@@ -1,0 +1,12 @@
+include ':lib_webview'
+include ':lib_update'
+include ':lib_share'
+include ':lib_qrcode'
+include ':lib_pullalive'
+include ':lib_network'
+include ':lib_image_ui'
+include ':lib_commin_ui'
+include ':lib_video'
+include ':lib_audio'
+include ':my_voice'
+rootProject.name = "music_player"
