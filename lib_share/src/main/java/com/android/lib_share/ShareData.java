@@ -5,15 +5,18 @@ import cn.sharesdk.framework.Platform;
 import cn.sharesdk.tencent.qq.QQ;
 
 /**
- * 分享的数据实体
+ * @author 要分享的数据实体
+ *
  */
 public class ShareData {
+
     /**
-     * 要分享的平台
+     * 要分享到的平台
      */
-    public ShareManager.PlatformType mPlatfornType;
+    public ShareManager.PlatformType mPlatformType;
+
     /**
-     * 要分享的品台参数
+     * 要分享到的平台的参数
      */
     public Platform.ShareParams mShareParams;
 }

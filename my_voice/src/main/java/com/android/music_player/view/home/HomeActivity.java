@@ -103,11 +103,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
     private void initView(){
         mDrawerLayout=findViewById(R.id.drawer_layout);
         mToggleView=findViewById(R.id.toggle_view);
+        mToggleView.setOnClickListener(this);
         mSearchView=findViewById(R.id.search_view);
         mSearchView.setOnClickListener(this);
         mViewPager=findViewById(R.id.view_pager);
         //适配器
         mAdapter=new HomePagerAdapter(getSupportFragmentManager(),CHANNELS);
+        mViewPager=findViewById(R.id.view_pager);
         mViewPager.setAdapter(mAdapter);
         //初始化指示器
         initMagciIndicator();
@@ -126,6 +128,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         MagicIndicator magicIndicator=findViewById(R.id.magic_indicator);
         magicIndicator.setBackgroundColor(Color.WHITE);
         CommonNavigator commonNavigator=new CommonNavigator(this);
+        commonNavigator.setAdjustMode(true);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {

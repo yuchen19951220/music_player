@@ -24,5 +24,7 @@ dependencies {
 
     implementation this.rootProject.depsLibs.appcompat
     api rootProject.depsLibs.magicindicator
+    compileOnly rootProject.depsLibs.recyclerview
+    compileOnly project(':lib_image_ui')
     compileOnly rootProject.depsLibs.okhttp //okttp依赖
 }

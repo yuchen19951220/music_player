@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.android.music_player.view.VideoFragment;
 import com.android.music_player.view.discory.DiscoryFragment;
-import com.android.music_player.model.friend.FriendFragment;
+import com.android.music_player.view.friend.FriendFragment;
 import com.android.music_player.model.CHANNEL;
 import com.android.music_player.view.mine.MineFragment;
 

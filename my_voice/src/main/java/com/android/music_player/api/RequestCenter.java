@@ -51,4 +51,12 @@ public class RequestCenter {
         RequestCenter.getRequest(HttpConstants.LOGIN,params,listener, User.class);
     }
 
+    /***
+     * 朋友页面请求
+     * @param listener
+     */
+    public static void requestFriendData(DisposeDataListener listener) {
+        RequestCenter.getRequest(HttpConstants.HOME_FRIEND, null, listener, BaseFriendModel.class);
+    }
+
 }

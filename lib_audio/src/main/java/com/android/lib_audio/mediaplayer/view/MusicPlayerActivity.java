@@ -35,6 +35,7 @@ import com.android.lib_audio.mediaplayer.model.AudioBean;
 import com.android.lib_commin_ui.base.BaseActivity;
 import com.android.lib_image_ui.app.ImageLoaderManager;
 import com.android.lib_audio.mediaplayer.utils.Utils;
+import com.android.lib_share.ShareDialog;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -135,7 +136,7 @@ public class MusicPlayerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 //分享逻辑
-//                shareMusic(mAudioBean.mUrl, mAudioBean.name);
+                shareMusic(mAudioBean.mUrl, mAudioBean.name);
             }
         });
 
@@ -326,5 +327,18 @@ public class MusicPlayerActivity extends BaseActivity {
 
     private void showPauseView() {
         mPlayView.setImageResource(R.mipmap.audio_aj7);
+    }
+
+
+
+    private void shareMusic(String url, String name){
+        ShareDialog dialog = new ShareDialog(this, false);
+        dialog.setShareType(5);
+        dialog.setShareTitle(name);
+        dialog.setShareTitleUrl(url);
+        dialog.setShareText("慕课网");
+        dialog.setShareSite("imooc");
+        dialog.setShareSiteUrl("http://www.imooc.com");
+        dialog.show();
     }
 }

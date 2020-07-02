@@ -50,7 +50,10 @@ dependencies {
     implementation project(':lib_share')
     //音频库
     implementation project(':lib_audio')
-
+    //保活库
+    implementation project(':lib_pullalive')
+    //视屏库
+    implementation project(':lib_video')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

@@ -1,10 +1,13 @@
 package com.android.lib_audio.app;
 
+import android.app.Activity;
 import android.content.Context;
 
+import com.android.lib_audio.mediaplayer.core.AudioController;
 import com.android.lib_audio.mediaplayer.core.MusicService;
 import com.android.lib_audio.mediaplayer.db.GreenDaoHelper;
 import com.android.lib_audio.mediaplayer.model.AudioBean;
+import com.android.lib_audio.mediaplayer.view.MusicPlayerActivity;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,20 @@ public class AudioHelper {
     //外部启动MusicService方法
     public static void startMusicService(ArrayList<AudioBean> audios) {
         MusicService.startMusicService(audios);
+    }
+    //外部音乐控制接口
+    //播放音乐
+    public static void addAudio(Activity activity, AudioBean bean){
+        AudioController.getInstance().addAudio(bean);
+        MusicPlayerActivity.start(activity);
+    }
+    //暂停音乐
+    public static void pauseAudio() {
+        AudioController.getInstance().pause();
+    }
+    //回复播放
+    public static void resumeAudio() {
+        AudioController.getInstance().resume();
     }
 
 

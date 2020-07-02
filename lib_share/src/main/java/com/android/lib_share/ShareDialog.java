@@ -44,6 +44,23 @@ public class ShareDialog extends Dialog {
 
     private boolean isShowDownload;
 
+    private PlatformActionListener mListener=new PlatformActionListener() {
+        @Override
+        public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+
+        }
+
+        @Override
+        public void onError(Platform platform, int i, Throwable throwable) {
+
+        }
+
+        @Override
+        public void onCancel(Platform platform, int i) {
+
+        }
+    };
+
     public ShareDialog(@NonNull Context context,boolean isShowDownload) {
         super(context,R.style.SheetDialogStyle);
         mContext=context;
@@ -136,19 +153,10 @@ public class ShareDialog extends Dialog {
         mShareText = text;
     }
 
-    private PlatformActionListener mListener = new PlatformActionListener() {
-        @Override
-        public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
-        }
+    /**
+     * 分享结果回调
+     */
 
-        @Override
-        public void onError(Platform platform, int i, Throwable throwable) {
-        }
-
-        @Override
-        public void onCancel(Platform platform, int i) {
-        }
-    };
 
     private void shareData(ShareManager.PlatformType platofrm) {
         ShareData mData = new ShareData();
@@ -161,7 +169,7 @@ public class ShareDialog extends Dialog {
         params.setText(mShareText);
         params.setImagePath(mSharePhoto);
         params.setUrl(mUrl);
-        mData.mPlatfornType = platofrm;
+        mData.mPlatformType = platofrm;
         mData.mShareParams = params;
         ShareManager.getInstance().shareData(mData, mListener);
     }

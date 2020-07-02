@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.imooc.lib_commin_ui.VerticalItemView
+        <com.android.lib_commin_ui.VerticalItemView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginLeft="15dp"
@@ -45,7 +45,7 @@
           app:infoTextMarginTop="7dp"
           app:infoTextSize="12sp" />
 
-        <com.imooc.lib_commin_ui.VerticalItemView
+        <com.android.lib_commin_ui.VerticalItemView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginLeft="15dp"
@@ -59,7 +59,7 @@
           app:infoTextMarginTop="7dp"
           app:infoTextSize="12sp" />
 
-        <com.imooc.lib_commin_ui.VerticalItemView
+        <com.android.lib_commin_ui.VerticalItemView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginLeft="15dp"
@@ -73,7 +73,7 @@
           app:infoTextMarginTop="7dp"
           app:infoTextSize="12sp" />
 
-        <com.imooc.lib_commin_ui.VerticalItemView
+        <com.android.lib_commin_ui.VerticalItemView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginLeft="15dp"
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <com.imooc.lib_commin_ui.VerticalItemView
+        <com.android.lib_commin_ui.VerticalItemView
           android:id="@+id/moment_layout"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
           app:infoTextMarginTop="7dp"
           app:infoTextSize="12sp" />
 
-        <com.imooc.lib_commin_ui.VerticalItemView
+        <com.android.lib_commin_ui.VerticalItemView
           android:id="@+id/weixin_layout"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
           app:infoTextMarginTop="7dp"
           app:infoTextSize="12sp" />
 
-        <com.imooc.lib_commin_ui.VerticalItemView
+        <com.android.lib_commin_ui.VerticalItemView
           android:id="@+id/qzone_layout"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
           app:infoTextMarginTop="7dp"
           app:infoTextSize="12sp" />
 
-        <com.imooc.lib_commin_ui.VerticalItemView
+        <com.android.lib_commin_ui.VerticalItemView
           android:id="@+id/qq_layout"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
