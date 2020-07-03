@@ -21,6 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.android.lib_audio.R;
 import com.android.lib_audio.mediaplayer.core.AudioController;
 import com.android.lib_audio.mediaplayer.core.CustomMediaPlayer;
@@ -48,6 +49,7 @@ import static com.android.lib_audio.mediaplayer.core.AudioController.PlayMode.RE
 /**
  * 播放音乐activity
  */
+@Route(path = "/audio/music_activity")
 public class MusicPlayerActivity extends BaseActivity {
 
     //各种view

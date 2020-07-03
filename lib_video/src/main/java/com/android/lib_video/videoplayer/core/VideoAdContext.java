@@ -2,6 +2,8 @@ package com.android.lib_video.videoplayer.core;
 
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.android.lib_base.audio.AudioService;
 import com.android.lib_video.videoplayer.VideoContextInterface;
 
 /**
@@ -16,6 +18,9 @@ public class VideoAdContext implements VideoAdSlot.SDKSlotListener {
     private String mInstance; //视屏地址
 
     private VideoContextInterface mListener; //与外界交互的listener
+
+
+
 
     public VideoAdContext(ViewGroup parentView, String instance){
         this.mParentView=parentView;

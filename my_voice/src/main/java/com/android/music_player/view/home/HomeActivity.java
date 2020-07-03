@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.android.lib_audio.app.AudioHelper;
 import com.android.lib_audio.mediaplayer.core.AudioController;
 import com.android.lib_audio.mediaplayer.model.AudioBean;
@@ -19,6 +20,7 @@ import com.android.lib_commin_ui.base.BaseActivity;
 import com.android.lib_commin_ui.pager_indictor.ScaleTransitionPagerTitleView;
 import com.android.lib_image_ui.app.ImageLoaderManager;
 import com.android.music_player.R;
+import com.android.music_player.constant.Constant;
 import com.android.music_player.model.login.LoginEvent;
 import com.android.music_player.utils.UserManager;
 import com.android.music_player.view.home.adpater.HomePagerAdapter;
@@ -114,6 +116,14 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
         //初始化指示器
         initMagciIndicator();
 
+
+        mDrawerQrcodeView = findViewById(R.id.home_qrcode);
+        mDrawerQrcodeView.setOnClickListener(this);
+        mDrawerShareView = findViewById(R.id.home_music);
+        mDrawerShareView.setOnClickListener(this);
+        findViewById(R.id.online_music_view).setOnClickListener(this);
+        findViewById(R.id.check_update_view).setOnClickListener(this);
+
         //登录时的ui
         unLogginLayout=findViewById(R.id.unloggin_layout);
         unLogginLayout.setOnClickListener(this);
@@ -186,9 +196,25 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener{
                     mDrawerLayout.closeDrawer(Gravity.LEFT);
                 }
                 break;
+            case R.id.toggle_view:
+                if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+                    mDrawerLayout.closeDrawer(Gravity.LEFT);
+                } else {
+                    mDrawerLayout.openDrawer(Gravity.LEFT);
+                }
+                break;
+            case R.id.home_music:
+                //shareFriend();
+                goToMusic();
+                break;
 
         }
 
+
+    }
+
+    private void goToMusic() {
+        ARouter.getInstance().build(Constant.Router.ROUTER_MUSIC_ACTIVIYT).navigation();
 
     }
 

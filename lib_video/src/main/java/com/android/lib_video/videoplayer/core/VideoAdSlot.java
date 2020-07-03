@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.android.lib_base.audio.AudioService;
 import com.android.lib_video.videoplayer.core.view.CustomVideoView;
 import com.android.lib_video.videoplayer.core.view.VideoFullDialog;
 import com.android.lib_video.videoplayer.utils.Utils;
@@ -28,12 +31,14 @@ public class VideoAdSlot implements CustomVideoView.ADVideoPlayerListener {
     /**
      * Data
      */
-
+    @Autowired(name = "/audio/audio_service")
+    protected AudioService mAudioService;
     private String mXAdInstance; //要播放的实例地址url
     //与context层的事件回调
     private SDKSlotListener mSlotListener;
 
     public VideoAdSlot(String adInstance, SDKSlotListener slotLitener) {
+        ARouter.getInstance().inject(this); //注册arout
         mXAdInstance = adInstance;
         mSlotListener = slotLitener;
         mParentView = slotLitener.getAdParent();
@@ -89,7 +94,7 @@ public class VideoAdSlot implements CustomVideoView.ADVideoPlayerListener {
         dialog.setSlotListener(mSlotListener);
         dialog.show();
         //全屏暂停音乐播放
-//        mAudioService.pauseAudio();
+        mAudioService.pauseAudio();
     }
 
     //全屏回到小屏
@@ -103,7 +108,7 @@ public class VideoAdSlot implements CustomVideoView.ADVideoPlayerListener {
         mVideoView.setListener(this);
         mVideoView.seekAndResume(position); //调到指定位置继续播放
         //小屏恢复音乐播放
-//        mAudioService.resumeAudio();
+        mAudioService.resumeAudio();
     }
 
     //全屏播放完毕回到小屏事件

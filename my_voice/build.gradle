@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.alibaba.arouter'
 
 android {
     compileSdkVersion this.rootProject.android.compileSdkVersion
@@ -12,6 +13,13 @@ android {
         versionName this.rootProject.android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //ARouter配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
     }
 
     buildTypes {
@@ -40,6 +48,12 @@ dependencies {
     //greendao插件依赖
     implementation rootProject.depsLibs.greendao
 
+
+    //arouter库
+    implementation(rootProject.depsLibs.arouterapi) {
+        exclude group: 'com.android.support'
+    }
+    annotationProcessor rootProject.depsLibs.aroutercompiler
     //基础UI库
     implementation project(path: ':lib_commin_ui')
     //网络请求库
@@ -54,6 +68,9 @@ dependencies {
     implementation project(':lib_pullalive')
     //视屏库
     implementation project(':lib_video')
+
+    //业务基础库
+    implementation project(':lib_base')
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
